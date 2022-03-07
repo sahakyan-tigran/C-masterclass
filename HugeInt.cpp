@@ -90,20 +90,13 @@ HugeInt& HugeInt::operator=(const HugeInt& arg) {
 
 HugeInt HugeInt::operator+(const HugeInt& arg) const {
 	HugeInt tmp(*this);
-	/*for (int l = tmp.m_max_length - 1;l >= tmp.m_max_length - tmp.m_length;--l) {
-		cout << "h2.m_data  " << tmp.m_data[l] << endl;
-		cout << tmp.m_length << endl;
-	}*/
-	/*if (tmp.m_length == 1) {
-		cout << "eeeeee" << endl;
-	}*/
+	
 	if (m_length == 1 && m_data[m_max_length - 1] == '0') {
 		return arg;
 	}
 	if (arg.m_length == 1 && arg.m_data[arg.m_max_length - 1] == '0') {
 		return tmp;
 	}
-	//cout << "dddddd" << endl;
 	if (tmp.m_length == tmp.m_max_length || arg.m_length > tmp.m_length) {
 		tmp.resize(tmp, (std::max(tmp.m_max_length, arg.m_max_length) * 2));
 	}
